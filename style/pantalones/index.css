@@ -1,0 +1,230 @@
+@import url("../index.css");
+
+.producto {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: stretch;
+    gap: 2rem;
+    width: min(var(--ancho), 100% - 2.5rem);
+    margin-inline: auto;
+    padding-block: 3rem;
+}
+
+.galeria {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--hueso);
+    border: 3px solid var(--cuero);
+    border-radius: 10px;
+    box-shadow: 0 8px 0 rgba(37, 22, 12, 0.2);
+}
+
+.miniaturas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.miniatura {
+    width: 72px;
+    height: 72px;
+    padding: 4px;
+    overflow: hidden;
+    background: var(--papel);
+    border: 2px solid var(--arena);
+    border-radius: var(--radio);
+}
+
+.miniatura[aria-current="true"],
+.miniatura:hover {
+    border-color: var(--laton);
+    box-shadow: 0 0 0 2px var(--cuero);
+}
+
+.miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.imagen-principal {
+    display: grid;
+    min-height: 480px;
+    place-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, var(--hueso) 0%, var(--papel) 100%);
+    border: 2px dashed var(--arena);
+    border-radius: var(--radio);
+}
+
+.imagen-principal img {
+    width: 100%;
+    max-height: 620px;
+    object-fit: contain;
+}
+
+.etiqueta-nuevo {
+    position: absolute;
+    z-index: 1;
+    top: 1.75rem;
+    left: 6.5rem;
+    padding: 0.3rem 0.8rem;
+    color: var(--hueso);
+    background: var(--establo);
+    border: 2px solid var(--laton);
+    border-radius: var(--radio);
+    font-family: var(--titulo);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.info {
+    align-self: center;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--hueso);
+    border: 3px solid var(--cuero);
+    border-radius: 10px;
+    box-shadow: 0 8px 0 rgba(37, 22, 12, 0.2);
+}
+
+.info .marca {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    color: var(--madera-oscura);
+    background: var(--laton);
+    border: 1px dashed var(--madera-oscura);
+    border-radius: 999px;
+    font-family: var(--titulo);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.info h1 {
+    margin-top: 1rem;
+    color: var(--madera-oscura);
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.estrellas {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.estrellas__fila {
+    color: var(--laton);
+    letter-spacing: 0.08em;
+}
+
+.estrellas__total {
+    padding: 0.1rem 0.65rem;
+    color: var(--cuero);
+    border: 1px solid var(--arena);
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.precio {
+    margin-top: 1.25rem;
+    color: var(--establo);
+    font-family: var(--titulo);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.botones {
+    display: flex;
+    margin-top: 1.25rem;
+}
+
+.botones a {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    color: var(--hueso);
+    background: var(--establo);
+    border: 2px solid var(--laton);
+    border-radius: var(--radio);
+    box-shadow: 0 4px 0 #5a1c11;
+    font-family: var(--titulo);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.botones a:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #5a1c11;
+}
+
+.descripcion {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed var(--arena);
+}
+
+.descripcion p + p {
+    margin-top: 0.8rem;
+}
+
+.descripcion strong {
+    color: var(--establo);
+}
+
+@media (max-width: 760px) {
+    .producto {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding-block: 1.5rem;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .miniaturas {
+        order: 2;
+        flex-direction: row;
+    }
+
+    .etiqueta-nuevo {
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+
+    .imagen-principal {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 520px) {
+    .producto {
+        width: min(100% - 1.25rem, var(--ancho));
+    }
+
+    .galeria {
+        padding: 0.75rem;
+    }
+
+    .info {
+        padding: 1.25rem;
+    }
+
+    .botones a {
+        width: 100%;
+    }
+}

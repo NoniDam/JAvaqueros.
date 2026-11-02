@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daga clásica para hombre | JA VAQUEROS</title>
+<link rel="stylesheet" href="../style/index.css">
+<link rel="icon" href="../img/herradura.png" type="image/png">
+</head>
+<body>
+
+<header class="topbar" id="inicio">
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="JA Vaqueros, inicio">
+      <img src="../img/logo.jpg" alt="Logo de JA VAQUEROS" width="120">
+      <span>JA VAQUEROS.</span>
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="../index.html#inicio">Inicio</a>
+      <a href="../index.html#catalogo">Catálogo</a>
+    </nav>
+    <a class="nav-btn" href="https://wa.me/528443072910" target="_blank" rel="noopener noreferrer">Contactar al vendedor</a>
+  </div>
+</header>
+
+<main class="producto container">
+  <section class="galeria" aria-label="Imágenes de la daga">
+    <span class="etiqueta-nuevo">NUEVO</span>
+
+    <div class="miniaturas" id="miniaturas">
+      <button class="miniatura" type="button" aria-current="true" data-src="../img/Dagas/daga0.jpeg"><img src="../img/Dagas/daga0.jpeg" alt="Daga vista frontal"></button>
+      <button class="miniatura" type="button" data-src="../img/Dagas/daga1.jpeg"><img src="../img/Dagas/daga1.jpeg" alt="Daga vista lateral"></button>
+      <button class="miniatura" type="button" data-src="../img/Dagas/daga2.jpeg"><img src="../img/Dagas/daga2.jpeg" alt="Daga en detalle"></button>
+      <button class="miniatura" type="button" data-src="../img/Dagas/daga3.jpeg"><img src="../img/Dagas/daga3.jpeg" alt="Daga con estilo rústico"></button>
+    </div>
+
+    <div class="imagen-principal">
+      <img id="imagenPrincipal" src="../img/Dagas/daga0.jpeg" alt="Daga clásica para hombre">
+    </div>
+  </section>
+
+  <section class="info">
+    <p class="marca">Pocas Unidades</p>
+    <h1>Daga clásica para hombre</h1>
+
+    <div class="estrellas" aria-label="Sin calificaciones">
+      <span class="estrellas__fila" aria-hidden="true">☆☆☆☆☆</span>
+      <span class="estrellas__total">0</span>
+    </div>
+
+    <p class="precio">$890</p>
+
+    <div class="cantidad">
+      <button type="button" id="menos" aria-label="Disminuir cantidad">−</button>
+      <input type="number" id="cantidad" value="1" min="1" aria-label="Cantidad">
+      <button type="button" id="mas" aria-label="Aumentar cantidad">+</button>
+    </div>
+
+    <div class="botones">
+      <a class="btn btn--principal" href="https://wa.me/528445391506?text=Hola%2C%20estoy%20interesado%2Fa%20en%20comprar%20la%20daga%20cl%C3%A1sica%20para%20hombre.%20%C2%BFMe%20podr%C3%ADas%20compartir%20informaci%C3%B3n%20sobre%20las%20tallas%20disponibles%20y%20la%20compra%3F" target="_blank" rel="noopener noreferrer">Contactar al vendedor</a>
+    </div>
+
+    <div class="descripcion">
+      <p>Daga con un diseño rústico y elegante, pensada para quienes buscan un detalle con carácter y estilo.</p>
+      <p>Su acabado clásico y su presencia visual la convierten en una pieza ideal para complementar un look vaquero con personalidad. <strong>Consulta disponibilidad y tallas</strong> con el vendedor.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <a class="brand footer-brand" href="../index.html#inicio">
+          <img src="../img/logo.jpg" alt="Logo de JA VAQUEROS" width="120">
+          <span>JA VAQUEROS.</span>
+        </a>
+        <p class="footer-description">Ropa masculina con esencia vaquera para acompañarte en cada camino.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Explora</h2>
+        <nav class="footer-links" aria-label="Enlaces del sitio">
+          <a href="../index.html#inicio">Inicio</a>
+          <a href="../index.html#catalogo">Catálogo</a>
+        </nav>
+      </div>
+      <div class="footer-column footer-contact">
+        <h2>¿Necesitas ayuda?</h2>
+        <p>Escríbenos para consultar disponibilidad, tallas y detalles de compra.</p>
+        <a class="footer-whatsapp" href="https://wa.me/528443072910" target="_blank" rel="noopener noreferrer">Contactar al vendedor</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 JA VAQUEROS. Todos los derechos reservados.</p>
+      <a href="#inicio">Volver al inicio ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const principal = document.getElementById('imagenPrincipal');
+  const miniaturas = document.querySelectorAll('.miniatura');
+  miniaturas.forEach(m => m.addEventListener('click', () => {
+    principal.src = m.dataset.src;
+    miniaturas.forEach(x => x.removeAttribute('aria-current'));
+    m.setAttribute('aria-current', 'true');
+  }));
+
+  const cant = document.getElementById('cantidad');
+  document.getElementById('menos').onclick = () => { cant.value = Math.max(1, (+cant.value || 1) - 1); };
+  document.getElementById('mas').onclick = () => { cant.value = (+cant.value || 1) + 1; };
+  cant.addEventListener('change', () => { cant.value = Math.max(1, +cant.value || 1); });
+
+  document.getElementById('agregarCarrito').onclick = () => {
+    console.log('Agregar al carrito, cantidad:', cant.value);
+  };
+  document.getElementById('agregarFavoritos').onclick = () => {
+    console.log('Agregar a favoritos');
+  };
+</script>
+</body>
+</html>
